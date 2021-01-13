@@ -1,4 +1,4 @@
-const key = "G8NZXBDrAvrE8h20Rd2yGxeEMkgQCaS5";
+const key = "*************************************";
 
 const form = document.querySelector(".search");
 
@@ -18,6 +18,7 @@ const next = document.querySelector(".arrow-right");
 
 const back = document.querySelector(".arrow-left");
 
+let i = 0;
 
 // ----------------------------------------------------------------------------------- //
 
@@ -45,42 +46,36 @@ theNews = async (query) => {
 
     const articles = data.response.docs;
 
-    articles.forEach((article) => {
+    return articles;
 
-        console.log(article);
+};
 
-    });
+//inject news api data into html
 
-    let i = 0;
+headline.innerHTML = articles[i].headline.main;
 
-    headline.innerHTML = data.response.docs[i].headline.main;
+author.innerHTML = "Author:" + " " + articles[i].byline.person[0].firstname + " " + articles[i].byline.person[0].lastname;
 
-    author.innerHTML = "Author:" + " " + data.response.docs[i].byline.person[0].firstname + " " + data.response.docs[i].byline.person[0].lastname;
+abstract.innerHTML = articles[i].abstract;
 
-    abstract.innerHTML = data.response.docs[i].abstract;
+articleImg.src = "https://nytimes.com/" + articles[i].multimedia[8].url;
 
-    articleImg.src = "https://nytimes.com/" + data.response.docs[i].multimedia[8].url;
-    
-    readMore.href = data.response.docs[i].web_url;
+readMore.href = articles[i].web_url;
 
-    // shuffle forward
-    next.addEventListener("click", e => {
+
+
+
+ // shuffle forward
+next.addEventListener("click", e => {
 
         i++;
         if (i === 5) i = 0;
         });
 
-    // shuffle back    
-    back.addEventListener("click", e => {
+// shuffle back    
+back.addEventListener("click", e => {
 
         i--;
         if (i < 0) i = 4; 
 
     });
-
-};
-
-
-
-
-
