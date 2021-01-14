@@ -2,7 +2,7 @@
 
 //https://developer.nytimes.com/docs/articlesearch-product/1/overview
 
-const key = "i6d0huTiH3eEloJe6mHAn0UyAipBe8q2";
+const key = "*************************************";
 
 const form = document.querySelector(".search");
 
