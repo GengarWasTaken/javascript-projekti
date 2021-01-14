@@ -1,4 +1,4 @@
-const key = "*********************************";
+const key = "****************************************";
 
 const form = document.querySelector(".search");
 
@@ -31,10 +31,9 @@ form.addEventListener("submit", e => {
 
     const newsTitle = form.search.value.trim();
     
-    currentArticles = theNews(newsTitle);
+    theNews(newsTitle);
 
     form.reset();
-
 
 });
 
@@ -45,11 +44,9 @@ theNews = async (query) => {
 
     const data = await response.json();
 
+    currentArticles = data.response.docs;
+
     renderNews();
-
-/*     const articles = data.response.docs;
-
-    console.log(currentArticles); */
 
 };
 
@@ -83,4 +80,4 @@ back.addEventListener("click", e => {
         renderNews();
         if (i < 0) i = 4; 
 
-        });
+    });
