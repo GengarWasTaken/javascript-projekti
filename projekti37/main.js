@@ -1,8 +1,8 @@
-//NY TIMES ARTICLE SEARCH DOCUMENTATION
+//NY TIMES NEWS API ARTICLE SEARCH DOCUMENTATION
 
 //https://developer.nytimes.com/docs/articlesearch-product/1/overview
 
-const key = "******************************";
+const key = "**********************************";
 
 const form = document.querySelector(".search");
 
@@ -61,7 +61,19 @@ headline.innerText = currentArticles[i].headline.main;
 
 author.innerText = `Author: ${currentArticles[i].byline.person[0].firstname} ${currentArticles[i].byline.person[0].lastname}`;
 
-abstract.innerText = currentArticles[i].abstract;
+//50 word limit abstract
+let splittedAbstract = currentArticles[i].abstract.split(" ");
+
+if (splittedAbstract.length >= 50)
+
+{
+    splittedAbstract.splice(50);
+
+    splittedAbstract[51] = "...";
+
+}
+
+abstract.innerText = splittedAbstract.join(' ');
 
 articleImg.src = `https:\/\/nytimes.com/${currentArticles[i].multimedia[8].url}`;
 
@@ -76,14 +88,14 @@ next.addEventListener("click", e => {
         renderNews();
         if (i === 5) i = 0;
         renderNews();
+
         });
 
 //shuffle back    
 back.addEventListener("click", e => {
 
         i--;
-        renderNews();
-        if (i < 0) i = 4; 
+        if (i < 0  ) i = 4; 
         renderNews();
 
         });
