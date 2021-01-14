@@ -1,4 +1,4 @@
-const key = "*************************************";
+const key = "*********************************";
 
 const form = document.querySelector(".search");
 
@@ -18,6 +18,8 @@ const next = document.querySelector(".arrow-right");
 
 const back = document.querySelector(".arrow-left");
 
+let currentArticles;
+
 let i = 0;
 
 // ----------------------------------------------------------------------------------- //
@@ -29,13 +31,12 @@ form.addEventListener("submit", e => {
 
     const newsTitle = form.search.value.trim();
     
-    theNews(newsTitle);
+    currentArticles = theNews(newsTitle);
 
     form.reset();
 
 
 });
-
 
 //news grab api 
 theNews = async (query) => {
@@ -44,31 +45,34 @@ theNews = async (query) => {
 
     const data = await response.json();
 
-    const articles = data.response.docs;
+    renderNews();
 
-    return articles;
+/*     const articles = data.response.docs;
+
+    console.log(currentArticles); */
 
 };
 
 //inject news api data into html
+function renderNews() {
 
-headline.innerHTML = articles[i].headline.main;
+headline.innerText = currentArticles[i].headline.main;
 
-author.innerHTML = "Author:" + " " + articles[i].byline.person[0].firstname + " " + articles[i].byline.person[0].lastname;
+author.innerText = `Author: ${currentArticles[i].byline.person[0].firstname} ${currentArticles[i].byline.person[0].lastname}`;
 
-abstract.innerHTML = articles[i].abstract;
+abstract.innerText = currentArticles[i].abstract;
 
-articleImg.src = "https://nytimes.com/" + articles[i].multimedia[8].url;
+articleImg.src = `https:\/\/nytimes.com/${currentArticles[i].multimedia[8].url}`;
 
-readMore.href = articles[i].web_url;
+readMore.href = currentArticles[i].web_url;
 
-
-
+}
 
  // shuffle forward
 next.addEventListener("click", e => {
 
         i++;
+        renderNews();
         if (i === 5) i = 0;
         });
 
@@ -76,6 +80,7 @@ next.addEventListener("click", e => {
 back.addEventListener("click", e => {
 
         i--;
+        renderNews();
         if (i < 0) i = 4; 
 
-    });
+        });
