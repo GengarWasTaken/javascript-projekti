@@ -1,4 +1,8 @@
-const key = "****************************************";
+//NY TIMES ARTICLE SEARCH DOCUMENTATION
+
+//https://developer.nytimes.com/docs/articlesearch-product/1/overview
+
+const key = "******************************";
 
 const form = document.querySelector(".search");
 
@@ -63,21 +67,23 @@ articleImg.src = `https:\/\/nytimes.com/${currentArticles[i].multimedia[8].url}`
 
 readMore.href = currentArticles[i].web_url;
 
-}
+};
 
- // shuffle forward
+ //shuffle forward
 next.addEventListener("click", e => {
 
         i++;
         renderNews();
         if (i === 5) i = 0;
+        renderNews();
         });
 
-// shuffle back    
+//shuffle back    
 back.addEventListener("click", e => {
 
         i--;
         renderNews();
         if (i < 0) i = 4; 
+        renderNews();
 
-    });
+        });
