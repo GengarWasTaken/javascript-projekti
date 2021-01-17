@@ -1,0 +1,217 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  font-size: 4rem;
+  font-family: sans-serif, "Arial";
+}
+
+body .container {
+  height: 100vh;
+  width: 100vw;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ebebeb), to(#7dd77d));
+  background-image: linear-gradient(to right, #ebebeb, #7dd77d);
+}
+
+body .container .calculator {
+  max-width: 425px;
+  background-color: #fff;
+}
+
+body .container .calculator .display {
+  border: 1px solid #fff;
+  outline: 1px solid #ADADAD;
+  outline-offset: -2px;
+  height: 102px;
+  text-align: center;
+  background-color: #e1e1e1;
+}
+
+body .container .calculator .keyboard {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[5];
+      grid-template-rows: repeat(5, 1fr);
+      grid-template-areas: "add sub mul div" "seven eight nine equals" "four five six equals" "one two three equals" "zero comma ac equals";
+}
+
+body .container .calculator .keyboard .add {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: add;
+}
+
+body .container .calculator .keyboard .sub {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  grid-area: sub;
+}
+
+body .container .calculator .keyboard .mul {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+  grid-area: mul;
+}
+
+body .container .calculator .keyboard .div {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+  grid-area: div;
+}
+
+body .container .calculator .keyboard .nine {
+  -ms-grid-row: 2;
+  -ms-grid-column: 3;
+  grid-area: nine;
+}
+
+body .container .calculator .keyboard .eight {
+  -ms-grid-row: 2;
+  -ms-grid-column: 2;
+  grid-area: eight;
+}
+
+body .container .calculator .keyboard .seven {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: seven;
+}
+
+body .container .calculator .keyboard .six {
+  -ms-grid-row: 3;
+  -ms-grid-column: 3;
+  grid-area: six;
+}
+
+body .container .calculator .keyboard .five {
+  -ms-grid-row: 3;
+  -ms-grid-column: 2;
+  grid-area: five;
+}
+
+body .container .calculator .keyboard .four {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: four;
+}
+
+body .container .calculator .keyboard .three {
+  -ms-grid-row: 4;
+  -ms-grid-column: 3;
+  grid-area: three;
+}
+
+body .container .calculator .keyboard .two {
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  grid-area: two;
+}
+
+body .container .calculator .keyboard .one {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: one;
+}
+
+body .container .calculator .keyboard .zero {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: zero;
+}
+
+body .container .calculator .keyboard .comma {
+  -ms-grid-row: 5;
+  -ms-grid-column: 2;
+  grid-area: comma;
+}
+
+body .container .calculator .keyboard .ac {
+  -ms-grid-row: 5;
+  -ms-grid-column: 3;
+  grid-area: ac;
+}
+
+body .container .calculator .keyboard .equals {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 4;
+  grid-area: equals;
+}
+/*# sourceMappingURL=main.css.map */

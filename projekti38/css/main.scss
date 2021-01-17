@@ -1,0 +1,157 @@
+@import "reset";
+
+body {
+
+    font-size: 4rem;
+    font-family: sans-serif, "Arial";
+
+    .container {
+
+        height: 100vh;
+        width: 100vw;
+
+        display: grid;
+        place-items: center;
+
+        background-image: linear-gradient(to right, rgb(235, 235, 235), rgb(125, 215, 125));
+
+        .calculator {
+
+                max-width: 425px;
+
+                background-color: #fff;
+
+                .display {
+
+                    border: 1px solid #fff;
+                    outline: 1px solid #ADADAD;
+                    outline-offset: -2px;
+
+                    height: 102px;
+
+                    text-align: center;
+
+                    background-color: rgb(225, 225, 225);
+
+                }
+
+                .keyboard {
+
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    grid-template-rows: repeat(5, 1fr);
+                    grid-template-areas: "add sub mul div"
+                                         "seven eight nine equals"
+                                         "four five six equals"
+                                         "one two three equals"
+                                         "zero comma ac equals";
+
+                                         .add {
+
+                                            grid-area: add;
+
+                                         }
+
+                                         .sub {
+
+                                            grid-area: sub;
+
+                                         }
+
+                                         .mul {
+
+                                            grid-area: mul;
+
+                                         }
+
+                                         .div {
+
+                                            grid-area: div;
+
+                                         }
+
+                                         .nine {
+
+                                            grid-area: nine;
+
+                                         }
+
+                                         .eight {
+
+                                            grid-area: eight;
+
+                                         }
+
+                                         .seven {
+
+                                            grid-area: seven;
+
+                                         }
+
+                                         .six {
+
+                                            grid-area: six;
+
+                                         }
+
+                                         .five {
+
+                                            grid-area: five;
+
+                                         }
+
+                                         .four {
+
+                                            grid-area: four;
+
+                                         }
+
+                                         .three {
+
+                                            grid-area: three;
+
+                                         }
+
+                                         .two {
+
+                                            grid-area: two;
+
+                                         }
+
+                                         .one {
+
+                                            grid-area: one;
+
+                                         }
+
+                                         .zero {
+
+                                            grid-area: zero;
+
+                                         }
+
+                                         .comma {
+
+                                            grid-area: comma;
+
+                                         }
+
+                                         .ac {
+
+                                            grid-area: ac;
+
+                                         }
+
+                                         .equals {
+
+                                            grid-area: equals;  
+
+                                         }
+
+                }
+
+        }
+
+    }
+
+}
