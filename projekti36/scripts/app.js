@@ -1,8 +1,14 @@
 const cityForm = document.querySelector("form");
+
 const card = document.querySelector(".card");
+
 const details = document.querySelector(".details");
+
 const time = document.querySelector("img.time");
+
 const icon = document.querySelector(".icon img");
+
+const city = localStorage.getItem("city");
 
 const updateUI = (data) => {
 
@@ -32,9 +38,7 @@ if(card.classList.contains("d-none")){
 
 };
 
-
-
-
+//update city
 const updateCity = async (city) => {
 
     const cityDets = await getCity(city);
@@ -52,9 +56,10 @@ cityForm.addEventListener("submit", e => {
     //prevent default
     e.preventDefault();
 
-    const city = cityForm.city.value.trim();
-
     //get city value
+    localStorage.setItem("city", cityForm.city.value.trim());
+    const city = localStorage.getItem("city");
+
     cityForm.reset();
 
     //update city ui with new city
@@ -64,3 +69,12 @@ cityForm.addEventListener("submit", e => {
 
 
 });
+
+//open page with last city searched (from local storage)
+if(city) {
+
+    updateCity(city)
+    .then(data => updateUI(data))
+    .catch(err => console.log(err));
+
+}
