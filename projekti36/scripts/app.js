@@ -10,6 +10,10 @@ const icon = document.querySelector(".icon img");
 
 const city = localStorage.getItem("city");
 
+const forecast = new Forecast();
+
+//
+
 const updateUI = (data) => {
 
 const { cityDets, weather } = data;
@@ -38,8 +42,10 @@ if(card.classList.contains("d-none")){
 
 };
 
+//OLD WAY OF DOING THINGS
+
 //update city
-const updateCity = async (city) => {
+/* const updateCity = async (city) => {
 
     const cityDets = await getCity(city);
     const weather = await getWeather(cityDets.Key);
@@ -49,7 +55,7 @@ const updateCity = async (city) => {
        weather
     };
 
-};
+}; */
 
 cityForm.addEventListener("submit", e => {
 
@@ -63,7 +69,7 @@ cityForm.addEventListener("submit", e => {
     cityForm.reset();
 
     //update city ui with new city
-    updateCity(city)
+    forecast.updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
@@ -73,7 +79,7 @@ cityForm.addEventListener("submit", e => {
 //open page with last city searched (from local storage)
 if(city) {
 
-    updateCity(city)
+    forecast.updateCity(city)
     .then(data => updateUI(data))
     .catch(err => console.log(err));
 
