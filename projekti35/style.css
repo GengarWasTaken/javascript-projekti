@@ -20,3 +20,17 @@ input[type=text]:focus{
 .filtered {
   display: none !important;
 }
+.sort {
+  display: flex;
+  justify-content: space-evenly;
+}
+svg {
+  fill: #423A6F;
+  width: 10%;
+  height: auto;
+  cursor: pointer;
+  margin-bottom: 24px;
+}
+svg:hover {
+  fill: #fff;
+}
