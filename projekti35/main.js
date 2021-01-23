@@ -17,10 +17,7 @@ addForm.addEventListener("submit", e => {
 
     if (newTodo != "") {
     
-    let html = `<li class="list-group-item d-flex justify-content-between align-items-center">
-    <span>${newTodo}</span>
-    <i class="far fa-trash-alt delete"></i>
-  </li>`
+    let html = `<li class="list-group-item d-flex justify-content-between align-items-center"><span>${newTodo}</span><i class="far fa-trash-alt delete"></i></li>`
 
     list.innerHTML += html;
 
@@ -88,7 +85,7 @@ function sortByAlpha() {
 
 //sort todos by Z-A
 const sortByZalpha = () => {
-    
+
     return Array.from(list.children)
     .sort(function(a, b) {
 
@@ -112,7 +109,7 @@ const sortByZalpha = () => {
 
 //update list by A-Z Sort
 sortingByAZ.addEventListener("click", e => {
-
+    
     if(!list.classList.contains("a-z")) {
 
     list.classList.add("a-z");
