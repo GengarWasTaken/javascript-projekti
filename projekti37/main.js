@@ -2,7 +2,7 @@
 
 //https://developer.nytimes.com/docs/articlesearch-product/1/overview
 
-const key = "************************************";
+const key = "i6d0huTiH3eEloJe6mHAn0UyAipBe8q2";
 
 const form = document.querySelector(".search");
 
@@ -21,6 +21,8 @@ const readMore = document.querySelector(".article-link");
 const next = document.querySelector(".arrow-right");
 
 const back = document.querySelector(".arrow-left");
+
+let currentArticle = 0;
 
 // ----------------------------------------------------------------------------------- //
 
@@ -52,7 +54,7 @@ theNews = async (query) => {
 
       }
 
-    renderNews();
+    renderNews(currentArticle);
 
 };
 
@@ -78,77 +80,17 @@ readMore.href = theArticle.web_url;
 //shuffle forward
 next.addEventListener("click", e => {
 
-        i++;
-        if (i === 5) i = 0;
-        renderNews();
+    currentArticle = ++currentArticle % 5;
+    renderNews(currentArticle);
 
         });
 
 //shuffle back    
 back.addEventListener("click", e => {
 
-        i--;
-        if (i < 0) i = 4; 
-        renderNews();
-
-        });
-
-//text word limiter
-function wrapWordsByText(text, numberOfWords) {
-
-    let splittedText = text.split(" ");
-
-    if(splittedText.length >= numberOfWords) {
-
-        splittedText.splice(numberOfWords);
-
-        splittedText[numberOfWords + 1] = "...";
-
-    };
-
-    return splittedText.join(" ");
-
-};
-    const response = await fetch(`https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&fq=Article&api-key=${key}`);
-
-    const data = await response.json();
-
-    currentArticles = data.response.docs;
-
-    renderNews();
-
-};
-
-//inject news api data into html
-function renderNews() {
-
-headline.innerText = currentArticles[i].headline.main;
-
-author.innerText = `Author: ${currentArticles[i].byline.person[0].firstname} ${currentArticles[i].byline.person[0].lastname}`;
-
-abstract.innerText = wrapWordsByText(currentArticles[i].abstract, 50);
-
-articleImg.src = `https:\/\/nytimes.com/${currentArticles[i].multimedia[8].url}`;
-
-readMore.href = currentArticles[i].web_url;
-
-};
-
- //shuffle forward
-next.addEventListener("click", e => {
-
-        i++;
-        if (i === 5) i = 0;
-        renderNews();
-
-        });
-
-//shuffle back    
-back.addEventListener("click", e => {
-
-        i--;
-        if (i < 0) i = 4; 
-        renderNews();
+    currentArticle--;
+    if (currentArticle < 0) currentArticle = 4; 
+    renderNews(currentArticle);
 
         });
 
