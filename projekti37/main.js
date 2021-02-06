@@ -73,7 +73,6 @@ readMore.href = currentArticles[i].web_url;
 next.addEventListener("click", e => {
 
         i++;
-        renderNews();
         if (i === 5) i = 0;
         renderNews();
 
