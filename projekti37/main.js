@@ -2,11 +2,14 @@
 
 //https://developer.nytimes.com/docs/articlesearch-product/1/overview
 
-const key = "************************************";
+const key = "i6d0huTiH3eEloJe6mHAn0UyAipBe8q2";
 
 const form = document.querySelector(".search");
 
-const article = document.querySelector(".article");
+const main = document.querySelector("main");
+
+//BAD DOM MANIPULATION ↓ - SEE LINE 64 FOR EXAMPLE
+/* const article = document.querySelector(".article");
 
 const abstract = document.querySelector(".article-text");
 
@@ -16,7 +19,8 @@ const author = document.querySelector(".article-author");
 
 const articleImg = document.querySelector(".article-img");
 
-const readMore = document.querySelector(".article-link");
+const readMore = document.querySelector(".article-link"); */
+//------------------------------------------------------------------------------------ //
 
 const next = document.querySelector(".arrow-right");
 
@@ -24,7 +28,7 @@ const back = document.querySelector(".arrow-left");
 
 let currentArticle = 0;
 
-// ----------------------------------------------------------------------------------- //
+//------------------------------------------------------------------------------------ //
 
 //search - event listener
 form.addEventListener("submit", e => {
@@ -58,8 +62,8 @@ theNews = async (query) => {
 
 };
 
-//inject news api data into html
-function renderNews(i) {
+//inject news api data into html (BAD DOM MANIPULATION)
+/* function renderNews(i) {
 
 let theArticle = sessionStorage.getItem(i);
   
@@ -75,7 +79,60 @@ articleImg.src = `https:\/\/nytimes.com/${theArticle.multimedia[4].url}`;
   
 readMore.href = theArticle.web_url;
 
-};
+}; */
+
+//inject news api data with GOOD DOM MANIPULATION
+function renderNews(i) {
+
+    let theArticle = sessionStorage.getItem(i);
+  
+    theArticle = JSON.parse(theArticle);
+
+    let articleText = wrapWordsByText(theArticle.abstract, 50);
+
+    let newNewsHTML = `
+
+    <section>
+
+    <div class="img-box">
+
+        <img src="https:\/\/nytimes.com/${theArticle.multimedia[4].url}" alt="" class="article-img">
+
+    </div>
+
+    <article>
+
+        <h2 class="article-title">
+
+            ${theArticle.headline.main}
+
+        </h2>
+
+        <h5 class="article-author">
+
+        Author: ${theArticle.byline.person[0].firstname} ${theArticle.byline.person[0].lastname}
+
+        </h5>
+
+        <p class="article-text">
+
+        ${articleText}
+
+        </p>
+
+        <a href="${theArticle.web_url}" class="article-link">
+
+            Read more.
+
+        </a>
+
+    </article>
+
+</section>`;
+
+    main.innerHTML = newNewsHTML;
+
+}
 
 //shuffle forward
 next.addEventListener("click", e => {
