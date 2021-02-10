@@ -8,7 +8,7 @@ const form = document.querySelector(".search");
 
 const main = document.querySelector("main");
 
-//BAD DOM MANIPULATION ↓ - SEE LINE 64 FOR EXAMPLE
+//BAD DOM MANIPULATION ↓ - SEE LINE 65 FOR EXAMPLE
 /* const article = document.querySelector(".article");
 
 const abstract = document.querySelector(".article-text");
