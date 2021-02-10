@@ -1,0 +1,228 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    -webkit-transition-duration: 0.01ms !important;
+            transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE 
+LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE 
+LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE 
+LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE LAYOUT AND STYLE */
+body {
+  font-family: "Raleway", sans-serif;
+  color: #4A4A4A;
+}
+
+body .container {
+  margin: 0 auto;
+  width: 65%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body .container header {
+  width: 76%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin: 2rem 0rem;
+}
+
+body .container header .header-title {
+  margin: 1rem 0rem;
+  font-weight: 900;
+}
+
+body .container header form input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid black;
+  border-radius: 1vh;
+  padding: 1rem 1rem;
+  background-image: url("../img/search.svg");
+  background-repeat: no-repeat;
+  background-position-x: 97.5%;
+  background-position-y: 50%;
+}
+
+body .container header form input:focus {
+  outline: none;
+  background-image: none;
+}
+
+body .container header form input::-webkit-input-placeholder {
+  font-weight: 300;
+}
+
+body .container header form input:-ms-input-placeholder {
+  font-weight: 300;
+}
+
+body .container header form input::-ms-input-placeholder {
+  font-weight: 300;
+}
+
+body .container header form input::placeholder {
+  font-weight: 300;
+}
+
+body .container .app {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100%;
+}
+
+body .container .app .arrow-left {
+  cursor: pointer;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  width: 2%;
+}
+
+body .container .app .arrow-right {
+  cursor: pointer;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  width: 2%;
+}
+
+body .container .app main {
+  width: 95%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body .container .app main section {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 80%;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+
+body .container .app main section .img-box {
+  width: 50%;
+}
+
+body .container .app main section .img-box img {
+  width: 100%;
+  height: 500px;
+}
+
+body .container .app main section article {
+  position: relative;
+  height: 500px;
+  width: 50%;
+  padding: 3rem 3rem;
+  background-color: #F1F1F1;
+}
+
+body .container .app main section article .article-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+body .container .app main section article .article-author {
+  font-size: 0.75rem;
+  font-weight: 300;
+}
+
+body .container .app main section article .article-text {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+body .container .app main section article .article-link {
+  position: absolute;
+  top: 90%;
+  text-decoration: none;
+  color: #4A4A4A;
+  font-size: 1rem;
+  font-weight: 500;
+  border-bottom: 1px dotted black;
+}
+/*# sourceMappingURL=main.css.map */
